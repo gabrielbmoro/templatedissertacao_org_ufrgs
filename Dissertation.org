@@ -246,18 +246,111 @@ Do as follows:
    #+end_src
 
 * Introdução
+* Estrutura - Capítulos e Seções
+Um único asterisco define um Capítulo. 
+** Seção
+Dois asteriscos definem uma seção.
+*** Subseção 
+A medida que adicionamos asteriscos, inserimos mais níveis aos
+capítulos.
+**** Isto é uma subsubseção
+Este é o maior nível que você pode chegar.
+**** As subsubseções aparecem como uma lista com números.
 
-* Conceitos Básicos
-\label{chapter.basic_concepts}
+* Alguns Exemplos Gerais
+\label{chapter.referencias}
+** Formatação de Texto
+
+O org suporta texto em Markup Language. Abaixo alguns exemplos: 
+
+*Negrito*
+
+/Itálico/
+
+=Verbatim=
+
+~if (code) then use this sintax~
+
+** Parágrafos
+
+*Para criar um novo parágrafo, use duas quebras de linha.* Lorem ipsum
+dolor sit amet, consectetur adipiscing elit. Aliquam bibendum sem dui,
+sed ultrices est pulvinar vel. Mauris fringilla, velit eget
+consectetur rhoncus, magna metus eleifend leo, id accumsan diam dui
+eget arcu. Vestibulum non diam vitae dui dignissim suscipit a sed
+nisl. Maecenas dignissim mauris eu tempor placerat. Praesent dignissim
+vitae metus vitae eleifend. Sed vulputate aliquet lectus at
+sodales. Etiam ornare vitae odio non finibus.
+
+Sed id facilisis magna, et finibus ante. Ut sed facilisis neque, in
+laoreet arcu. Vestibulum et cursus libero, sed scelerisque diam. Fusce
+a faucibus lacus. Suspendisse condimentum odio eget vehicula
+fringilla. Aenean sollicitudin dui in porttitor imperdiet. Suspendisse
+maximus rutrum auctor. Suspendisse malesuada dui ligula, at placerat
+neque commodo eget. Suspendisse ac pretium quam. Donec vestibulum mi
+eu pellentesque lobortis. Quisque nec massa lacus.
+
+** Referências a elementos do texto
+Um elemento precisa de um label (=\label=) para ser referenciado. O
+label deste capítulo, por exemplo, é =chapter.referencias=. O prefixo
+/chapter/ é apenas uma convenção para organizar melhor, não é
+obrigatório. Para referenciar capítulos, imagens e tabelas use
+=\ref=. No capítulo \ref{chapter.imagem}, podemos ver na imagem
+\ref{fig.logo} o logo do Instituto de Informática da UFRGS.  No
+capítulo \ref{chapter.tabela} vemos a tabela \ref{tab.machines}, que é
+um exemplo.
+
+** Referências bibliográficas
+
+Para referenciar bibliografias, utilizamos o =\cite=. A bibliografia é
+colocada em um arquivo separado com extensão =.bib=, onde damos uma
+identificação para cada referência que depois usamos dentro do
+=\cite=. No exemplo de bibligrafia, temos um livro \cite{jain}, dois
+artigos \cite{kergommeaux2000paje} \cite{kergommeaux2003flexible}, uma
+documentação \cite{pajetracefile} e sites da internet
+\cite{javaccdoc}. Você também pode usar footnotes. A sintaxe para
+bibliografia é a do latex e pode ser consultada na documentação do
+LaTeX\footnote{https://en.wikibooks.org/wiki/LaTeX}.
+
+* Exemplo de Imagem
+\label{chapter.imagem}
+
+Altere o tamanho da figura no parametro =includegraphics=. No exemplo,
+colocamos metade da largura da linha.
 
 #+BEGIN_LaTeX
-%\begin{figure}[!htb]
-%\caption{JavaCC's file generation flow}
-%\centering
-%\includegraphics[width=.85\linewidth]{./img/javaccex.pdf}
-%\label{fig.javaccex} 
-%\\\source
-%\end{figure}
+\begin{figure}[!htb]
+\caption{Logo do Instituto de Informática da UFRGS}
+\centering
+\includegraphics[width=.5\linewidth]{./img/logo-inf.png}
+\label{fig.logo}
+\\\source
+\end{figure}
+#+END_LaTeX
+
+* Exemplo de Tabela
+\label{chapter.tabela} 
+
+Para gerar tabelas, use a sintaxe do latex.
+
+#+BEGIN_LaTeX
+\begin{table}[!htb]
+\caption{Experimental Units description}
+\label{tab.machines}
+\centering
+\begin{tabularx}{\linewidth}{lXXX}\toprule
+                         &   {\bf Luiza}         & {\bf Orion1}         & {\bf Guarani}    \\\toprule
+Processor                &  Intel Core i7        & Xeon E5-2630         & Intel Core i5-2400   \\
+CPU(s)                   &  1                    & 2                    & 1       \\
+Cores per CPU            &  4                    & 6                    & 4             \\
+Max. Freq.               &  2.7 GHz              & 2.30GHz              & 3.10GHz       \\
+L1d/L1i Cache            & 32/32KBytes           & 32/32KBytes          & 32/32KBytes  \\     
+L2 Cache                 & 256KBytes             & 256KBytes            & 256KBytes    \\
+L3 Cache                 & 6MBytes               & 15MBytes              & 6MBytes         \\
+Memory                   & 16GBytes              & 32GBytes             & 20GBytes      \\\midrule
+OS                       & OSX 10.10.5           & Ubuntu 12.04.5       & Debian 4.3.5-1 \\
+\bottomrule\end{tabularx}
+\end{table}
 #+END_LaTeX
 
 * Trabalhos Relacionados
@@ -265,29 +358,11 @@ Do as follows:
 
 TR...
   
-* Experimentos
-\label{chapter.experiments} 
+* Conclusão
+Na conclusão, coloque ao final a seguinte linha, para que as
+referências do bibtex sejam incluídas. "References" é o nome do
+arquivo =.bib.=.
 
-
-#+BEGIN_LaTeX
-%\begin{table}[!htb]
-%\caption{Experimental Units description}
-%\label{tab.machines}
-%\centering
-%\begin{tabularx}{\linewidth}{lXXX}\toprule
-%                        &   {\bf Luiza}         & {\bf Orion1}         & {\bf Guarani}    %\\\toprule
-%Processor                &  Intel Core i7        & Xeon E5-2630         & Intel Core i5-2400   %\\
-%CPU(s)                   &  1                    & 2                    & 1       \\
-%Cores per CPU            &  4                    & 6                    & 4             \\
-%Max. Freq.               &  2.7 GHz              & 2.30GHz              & 3.10GHz       \\
-%L1d/L1i Cache            & 32/32KBytes           & 32/32KBytes          & 32/32KBytes  \\     
-%L2 Cache                 & 256KBytes             & 256KBytes            & 256KBytes    \\
-%L3 Cache                 & 6MBytes               & 15MBytes              & 6MBytes         \\
-%Memory                   & 16GBytes              & 32GBytes             & 20GBytes      %\\\midrule
-%OS                       & OSX 10.10.5           & Ubuntu 12.04.5       & Debian 4.3.5-1 \\
-%\bottomrule\end{tabularx}
-%\end{table}
-#+END_LaTeX
 
 #+LATEX: \bibliography{References}
 
@@ -296,6 +371,5 @@ TR...
 * Apendice 1
 \label{ap.javacc}
 
-asdsaodk
-set of optional flags. An example, is the flag =STATIC=, which means
-that there is only one parser for the JVM when set to true.
+ O apendice também pode ter um label e tem a mesma estrutura do resto
+ da dissertação. Para definir o começo do apendice, use =\appendix=.
